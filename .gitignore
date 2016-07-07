@@ -1,0 +1,10 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+/test
+.DS_Store
+/build
+/captures
+/test_servers/*
+/ProjectFilesBackup
