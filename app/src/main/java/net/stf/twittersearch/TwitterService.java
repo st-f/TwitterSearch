@@ -48,6 +48,6 @@ public class TwitterService {
     public void search(String term, GuestCallback callback) {
         currentSearchTerm = term;
         TwitterApiClient twitterApiClient = TwitterCore.getInstance().getApiClient(session);
-        twitterApiClient.getSearchService().tweets("#"+currentSearchTerm, null, null, null, null, 50, null, null, null, true, callback);
+        twitterApiClient.getSearchService().tweets(currentSearchTerm, null, null, null, null, 50, null, null, null, true, callback);
     }
 }

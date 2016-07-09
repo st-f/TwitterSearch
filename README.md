@@ -1,14 +1,14 @@
 Twitter Search
 ====================
 
-Demo application
+Demo application. Allows to search 50 tweets and displays them in a list. The list refreshes every 30 seconds. 
 
 <img src="screenshot_0.png" alt="capture" width="216" height="384"/>
 
 
 ---
 
-Specifications, frameworks and libraries
+Specifications
 ------------------------
 
 - SDK version: 23

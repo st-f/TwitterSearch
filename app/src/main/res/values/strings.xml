@@ -3,4 +3,5 @@
     <string name="search_hint">Type here to search</string>
     <string name="search_title">Search</string>
     <string name="search_hint_home">To begin, tap on the\n search button.\n\nUse the back button to go back \nin your search history.</string>
+    <string name="no_results">No results.</string>
 </resources>

@@ -66,13 +66,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadTweets(String query) {
-        showList();
+        showHideList(true);
         TwitterService.getInstance().search(query, new GuestCallback<>(new Callback<Search>() {
             @Override
             public void success(Result<Search> result) {
-                ArrayList<ListAdapter.ListViewItemModel> listModel = getListViewItemModel(result);
-                ListAdapter listAdapter = new ListAdapter(context, 0, listModel);
-                list.setAdapter(listAdapter);
+                final boolean hasTweets = result.data.tweets.size() > 0;
+                showHideList(hasTweets);
+                if(!hasTweets) {
+                    textView.setText(getString(R.string.no_results));
+                } else {
+                    ArrayList<ListAdapter.ListViewItemModel> listModel = getListViewItemModel(result);
+                    ListAdapter listAdapter = new ListAdapter(context, 0, listModel);
+                    list.setAdapter(listAdapter);
+                }
             }
 
             @Override
@@ -103,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
         return listModel;
     }
 
-    private void showList() {
-        list.setVisibility(View.VISIBLE);
-        textView.setVisibility(View.GONE);
+    private void showHideList(boolean visible) {
+        list.setVisibility(visible ? View.VISIBLE : View.GONE);
+        textView.setVisibility(visible ? View.GONE : View.VISIBLE);
     }
 
     @Override
